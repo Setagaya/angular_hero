@@ -15,14 +15,6 @@
       <input [(ngModel)]="hero.birthday" placeholder="yyyy/mm/dd"/>
     </label>
   </div><div>
-    <label>birthday 1:
-      <div>{{ hero.birthday }}</div>
-    </label>
-  </div><div>
-    <label>birthday 2:
-      <div>{{ hero._birthday }}</div>
-    </label>
-  </div><div>
     <label>age:
       <div>{{ hero.age }}</div>
     </label>
