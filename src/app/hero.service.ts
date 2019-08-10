@@ -55,7 +55,7 @@ export class HeroService {
   addHero (hero: Hero): Observable<Hero> {
     console.log('addHero start');
     console.log(hero);
-    hero.calc_age();
+    this.set_hero_age(hero);
     console.log(hero);
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
@@ -78,13 +78,22 @@ export class HeroService {
   updateHero (hero: Hero): Observable<any> {
     console.log('updateHero start');
     console.log(hero);
-    hero.calc_age();
+    this.set_hero_age(hero);
     console.log(hero);
     return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)), 
       catchError(this.handleError<any>('updateHero'))
     );
   }
+
+  public set_hero_age(hero: Hero) {
+    console.log('set_hero_age: birthday=%s', hero.birthday);
+    const days: string[] = hero.birthday.split('/');
+    const age: number  = (new Date()).getFullYear() - parseInt(days[0]) + 1; // 面倒なので数え年
+    console.log('set_hero_age: birthday=%s', hero.birthday);
+    console.log('set_hero_age: age=%d', age);
+    hero.age = age;
+  }  
 
   /**
    * 失敗したHttp操作を処理します。
