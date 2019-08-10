@@ -55,6 +55,8 @@ export class HeroService {
   addHero (hero: Hero): Observable<Hero> {
     console.log('addHero start');
     console.log(hero);
+    hero.calc_age();
+    console.log(hero);
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
@@ -75,6 +77,8 @@ export class HeroService {
   /** PUT: サーバー上でヒーローを更新 */
   updateHero (hero: Hero): Observable<any> {
     console.log('updateHero start');
+    console.log(hero);
+    hero.calc_age();
     console.log(hero);
     return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)), 
