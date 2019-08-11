@@ -23,7 +23,8 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}} {{hero.age}}
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span *ngIf="hero.age"> ( age:{{hero.age}} ) </span>
     </a>
     <button class="delete" title="delete hero"
       (click)="delete(hero)">x</button>
