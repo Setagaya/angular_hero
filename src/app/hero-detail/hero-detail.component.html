@@ -11,17 +11,24 @@
       <input [(ngModel)]="hero.nickname" placeholder="nickname"/>
     </label>
   </div><div>
-    <label>birthday（input イベント を 利用 し た 記法）:
+    <label>birthday （inputイベントを利用した処理）:
       <input
         [ngModel]="hero.birthday"
         (input)="hero.birthday=$event.target.value"
         placeholder="yyyy/mm/dd"/>
     </label>
   </div><div>
-    <label>birthday（ngModelChange イベント を 利用 し た 記法）:
+    <label>birthday （ngModelChangeイベントを利用した処理）:
       <input
         [ngModel]="hero.birthday"
         (ngModelChange)="hero.birthday=$event"
+        placeholder="yyyy/mm/dd"/>
+    </label>
+  </div><div> 
+    <label>birthday （input イベント からcomponentを経由しheroのメソッドを呼びだす処理）:
+      <input
+        [ngModel]="hero.birthday"
+        (input)="setAge(hero.birthday)"
         placeholder="yyyy/mm/dd"/>
     </label>
   </div><div>

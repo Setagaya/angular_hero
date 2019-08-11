@@ -37,4 +37,11 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.updateHero(this.hero)
       .subscribe(() => this.goBack());
   }
+
+  setAge(birthday: string): void {
+    console.log("component.setAge()");
+    console.log(this.hero);
+    this.hero.age = this.hero.getAge(birthday);
+    console.log(this.hero);
+  }
 }

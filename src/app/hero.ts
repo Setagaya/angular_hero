@@ -13,14 +13,21 @@ export class Hero {
 
   set birthday(birthday: string) {
     this._birthday = birthday;
-    const days: string[] = birthday.split('/');
-    const age: number  = (new Date()).getFullYear() - parseInt(days[0]) + 1; // 面倒なので数え年
+    // const days: string[] = birthday.split('/');
+    // const age: number  = (new Date()).getFullYear() - parseInt(days[0]) + 1; // 面倒なので数え年
     console.log('setter: birthday=%s', birthday);
-    console.log('setter: age=%d', age);
-    this.age = age;
+    // this.age = age;
+    this.age = this.getAge(birthday);
+    console.log('setter: age=%d', this.age);
   }
   get birthday(): string {
     console.log('getter');
     return this._birthday;
+  }
+
+   getAge(birthday: string): number {
+    const days: string[] = birthday.split('/');
+    const age: number  = (new Date()).getFullYear() - parseInt(days[0]) + 1; // 面倒なので数え年
+    return age;
   }
 }
