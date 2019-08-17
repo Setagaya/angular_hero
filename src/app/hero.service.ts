@@ -48,6 +48,7 @@ export class HeroService {
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
+  
 
   //////// Save methods //////////
 
