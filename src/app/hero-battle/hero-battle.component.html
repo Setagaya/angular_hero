@@ -1,22 +1,24 @@
 <div>
 
-  <div class="grid grid-pad">
-    <div *ngIf="heroHome" class="col-1-4">
-      <h2>{{heroHome.name | uppercase}}</h2>
-      <h4 *ngIf="heroHome.age; else elseAgeHome">{{heroHome.age}}</h4>
-      <ng-template #elseAgeHome>Unrecorded..</ng-template>
-      <h4 *ngIf="battlelogHome">{{battlelogHome}}</h4>
-    </div>
-    <div *ngIf="heroAway" class="col-1-4">
-      <h2>{{heroAway.name | uppercase}}</h2>
-      <h4 *ngIf="heroAway.age; else elseAgeAway">{{heroAway.age}}</h4>
-      <ng-template #elseAgeAway>Unrecorded..</ng-template>
-      <h4 *ngIf="battlelogAway">{{battlelogAway}}</h4>
-    </div>                                                                                                                                                                                                                                                                                                                                                            
-  </div>
-  <div>{{battleResultMsg}}</div>
+  <div>
+    <div class="grid grid-pad">
+      <div *ngIf="heroHome" class="col-1-4">
+        <h2>{{heroHome.name | uppercase}}</h2>
+        <h4 *ngIf="heroHome.age; else elseAgeHome">{{heroHome.age}}</h4>
+        <ng-template #elseAgeHome>Unrecorded..</ng-template>
+        <h4 *ngIf="battlelogHome">{{battlelogHome}}</h4>
+      </div>
+      <div *ngIf="heroAway" class="col-1-4">
+        <h2>{{heroAway.name | uppercase}}</h2>
+        <h4 *ngIf="heroAway.age; else elseAgeAway">{{heroAway.age}}</h4>
+        <ng-template #elseAgeAway>Unrecorded..</ng-template>
+        <h4 *ngIf="battlelogAway">{{battlelogAway}}</h4>
+      </div>                                                                                                                                                                                                                                                                                                                                                            
+  </div><div>
+    <div>{{battleResultMsg}}</div>
         
     <button (click)="goBack()">go back</button>
     <button (click)="startBattle()">start battle</button>
+  </div>
   
 </div>

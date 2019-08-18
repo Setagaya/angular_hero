@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Hero }         from '../hero';
 import { BattleResult } from '../battleResult';
 import { HeroService }  from '../hero.service';
+import { BattleService }  from '../battle.service';
+
 
 @Component({
   selector: 'app-hero-battle',
@@ -17,7 +19,8 @@ export class HeroBattleComponent implements OnInit {
   battleResultMsg: string;
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private battleService: BattleService
   ) {}
 
   ngOnInit() {
@@ -32,7 +35,7 @@ export class HeroBattleComponent implements OnInit {
         const heroLength = heroes.length;
         console.log("heroLength=%d", heroLength);
         const heroHomeId: number = Math.floor( Math.random() * heroLength);
-        const anotherNum: number = Math.floor( Math.random() * heroLength - 1);
+        const anotherNum: number = Math.floor( Math.random() * (heroLength - 1));
         const heroAwayId = (anotherNum === heroHomeId) ? heroLength - 1 : anotherNum;
         console.log("heroHomeId=%d", heroHomeId);
         console.log("heroAwayId=%d", heroAwayId);
@@ -46,8 +49,10 @@ export class HeroBattleComponent implements OnInit {
   }
 
   startBattle(): void {
-    this.battleResultMsg = 'Battle result is this.';  // TODO サービスを利用して値取得する処理を記述
-    console.log('result is recorded.'); // TODO サービスを利用して値取得する処理を記述
+    const battleResult = this.battleService.getBattleResult(this.heroHome, this.heroAway);
+    console.log(battleResult);
+    this.battleResultMsg = battleResult.getMessage();
+    // TODO サービスを利用して試合結果を記録する
   }
 
 }
