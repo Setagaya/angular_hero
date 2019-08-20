@@ -15,6 +15,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroBattleComponent } from './hero-battle/hero-battle.component';
+import { BattleDetailComponent } from './battle-detail/battle-detail.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { HeroBattleComponent } from './hero-battle/hero-battle.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    HeroBattleComponent
+    HeroBattleComponent,
+    BattleDetailComponent
   ],
   bootstrap: [ AppComponent ],
   providers: []

@@ -17,7 +17,8 @@ export class HeroBattleComponent implements OnInit {
   battlelogHome: string;
   battlelogAway: string;
   battleResultMsg: string;
-
+  battleComment: string;
+  
   constructor(
     private heroService: HeroService,
     private battleService: BattleService
